@@ -21,10 +21,12 @@ void callModuleFunc( int v )
         ::GetProcAddress( hModule, "moduleFunc" ) );
     if ( nullptr == fpModuleFunc ) {
         printf( "GetProcAddress() failed: 0x%08x\n", ::GetLastError() );
-        return;
+    }
+    else {
+        fpModuleFunc( v );
     }
 
-    fpModuleFunc( v );
+    ::FreeLibrary( hModule );
 }
 #pragma optimize( "", on )
 
