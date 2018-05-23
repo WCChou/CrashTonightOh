@@ -1,0 +1,3 @@
+LIBRARY	Module.lib
+EXPORTS
+	moduleFunc @1
